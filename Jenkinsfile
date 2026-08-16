@@ -41,6 +41,7 @@ pipeline {
 
         always {
             echo 'Pipeline finished'
+            // Webhook test
         }
     }
 }
