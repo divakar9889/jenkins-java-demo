@@ -51,7 +51,9 @@ pipeline {
 
         always {
             echo 'Pipeline finished'
+            echo 'Webhook triggered successfully'
             // GitHub Webhook Test
+            
         }
     }
 }
