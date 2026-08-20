@@ -1,5 +1,5 @@
 pipeline {
-
+    
     agent{ 
         label 'agent-1'
     }
@@ -30,6 +30,13 @@ pipeline {
             }
         }
     }
+    stage('Credentials Test') {
+    steps {
+        withCredentials([string(credentialsId: 'demo-secret', variable: 'MY_SECRET')]) {
+            sh 'echo "Secret loaded successfully"'
+        }
+    }
+}
 
     post {
 
