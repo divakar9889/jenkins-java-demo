@@ -1,6 +1,6 @@
 pipeline {
-    
-    agent{ 
+
+    agent {
         label 'agent-1'
     }
 
@@ -29,14 +29,15 @@ pipeline {
                 sh 'ls -l target/'
             }
         }
-    }
-    stage('Credentials Test') {
-    steps {
-        withCredentials([string(credentialsId: 'demo-secret', variable: 'MY_SECRET')]) {
-            sh 'echo "Secret loaded successfully"'
+
+        stage('Credentials Test') {
+            steps {
+                withCredentials([string(credentialsId: 'demo-secret', variable: 'MY_SECRET')]) {
+                    sh 'echo "Secret loaded successfully"'
+                }
+            }
         }
     }
-}
 
     post {
 
@@ -50,8 +51,6 @@ pipeline {
 
         always {
             echo 'Pipeline finished'
-            // Webhook test
-            // Webhook test 2
         }
     }
 }
